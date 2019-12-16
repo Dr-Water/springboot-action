@@ -15,11 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
+    /** 用于测试自定义异常
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/json")
     public String json() throws Exception {
-        throw new MyException("发生错误2");
+        throw new MyException("发生错误啦啦啦啦");
     }
 
+    /** 用于测试除自定义异常以外的异常
+     * @return
+     */
     @RequestMapping("/json2")
     public Integer json2(){
         return 2/0;

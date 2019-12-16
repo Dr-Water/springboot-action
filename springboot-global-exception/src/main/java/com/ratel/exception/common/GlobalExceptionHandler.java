@@ -17,6 +17,13 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    /**
+     * 最大的异常捕获类，用于最后兜底的异常的处理器
+     * @param req
+     * @param e
+     * @return
+     * @throws Exception
+     */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public ErrorInfo<String> jsonErrorHandler(HttpServletRequest req, Exception e) throws Exception {
@@ -28,13 +35,20 @@ public class GlobalExceptionHandler {
         return r;
     }
 
+    /**
+     * 用于捕获自己自定的异常，，自定义的异常是处理器可以有多个，发生异常的时候如果匹配到的自定义的异常则不再匹配上面的最大的异常处理器（即：jsonErrorHandler）
+     * @param req
+     * @param e
+     * @return
+     * @throws Exception
+     */
     @ExceptionHandler(value = MyException.class)
     @ResponseBody
-    public ErrorInfo<String> jsonErrorHandler2(HttpServletRequest req, MyException e) throws Exception {
+    public ErrorInfo<String> myjsonErrorHandler(HttpServletRequest req, MyException e) throws Exception {
         ErrorInfo<String> r = new ErrorInfo<>();
         r.setMessage(e.getMessage());
         r.setCode(ErrorInfo.ERROR);
-        r.setData("Some Data====jsonErrorHandler2");
+        r.setData("Some Data====myjsonErrorHandler");
         r.setUrl(req.getRequestURL().toString());
         return r;
     }
