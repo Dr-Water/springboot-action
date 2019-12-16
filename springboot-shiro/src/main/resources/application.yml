@@ -1,0 +1,48 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shiro?serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+
+# multipart.maxFileSize=10Mb\u662F\u8BBE\u7F6E\u5355\u4E2A\u6587\u4EF6\u7684\u5927\u5C0F, multipart.maxRequestSize=100Mb\u662F\u8BBE\u7F6E\u5355\u6B21\u8BF7\u6C42\u7684\u6587\u4EF6\u7684\u603B\u5927\u5C0F
+# \u5982\u679C\u662F\u60F3\u8981\u4E0D\u9650\u5236\u6587\u4EF6\u4E0A\u4F20\u7684\u5927\u5C0F\uFF0C\u90A3\u4E48\u5C31\u628A\u4E24\u4E2A\u503C\u90FD\u8BBE\u7F6E\u4E3A-1\u5C31\u884C\u5566
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size:  -1
+
+# mybatis \u522B\u540D\u626B\u63CF
+mybatis:
+  type-aliases-package: com.ratel.shiro.entity
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+   level:
+    com.ratel.shiro: debug
+
+
+download:
+    zipBasePath2: D:/temp/download/
+
+renren:
+  redis:
+    open: false
+  shiro:
+    redis: false
+  # APP\u6A21\u5757\uFF0C\u662F\u901A\u8FC7jwt\u8BA4\u8BC1\u7684\uFF0C\u5982\u679C\u8981\u4F7F\u7528APP\u6A21\u5757\uFF0C\u5219\u9700\u8981\u4FEE\u6539\u3010\u52A0\u5BC6\u79D8\u94A5\u3011
+  jwt:
+    # \u52A0\u5BC6\u79D8\u94A5
+    secret: f4e2e52034348f86b67cde581c0f9eb5[www.renren.io]
+    # token\u6709\u6548\u65F6\u957F\uFF0C7\u5929\uFF0C\u5355\u4F4D\u79D2
+    expire: 604800
+    header: token
+
+
+
+
