@@ -11,4 +11,9 @@
     <select id="selectOne" resultType="com.ratel.shiro.modules.jwt.entity.UserEntity">
         SELECT * FROM jwt_user WHERE  mobile=#{phoneNum}
     </select>
+
+
+    <update id="update">
+        UPDATE jwt_user SET username ='wangwuupdate' WHERE user_id= 2
+    </update>
 </mapper>

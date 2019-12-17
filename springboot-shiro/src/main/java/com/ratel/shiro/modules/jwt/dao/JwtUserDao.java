@@ -18,4 +18,11 @@ public interface JwtUserDao  {
     UserEntity selectOne(@Param("phoneNum") String phoneNum);
     UserEntity selectById(Integer id);
 
+
+    /**
+     * 用于测试@Transactional
+     * @return
+     */
+    boolean update();
+
 }

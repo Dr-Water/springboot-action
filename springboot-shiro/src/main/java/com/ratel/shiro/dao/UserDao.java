@@ -18,6 +18,12 @@ public interface UserDao {
     User selectById(Integer id);
     User selectByUserName(@Param("username") String userName);
 
+    /**
+     * 用于测试@Transactional
+     * @return
+     */
+    boolean update();
+
 
 
 }

@@ -11,4 +11,7 @@
     <select id="selectByUserName" resultType="com.ratel.shiro.entity.User">
         SELECT * FROM user WHERE  username=#{username}
     </select>
+    <update id="update">
+        UPDATE user SET username ='zsupdate' WHERE id= 2
+    </update>
 </mapper>

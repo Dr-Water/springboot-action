@@ -11,7 +11,7 @@
 	<groupId>com.ratel</groupId>
 	<artifactId>shiro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>shiro</name>
+	<name>springboot-shiro</name>
 	<description>shiro-demo</description>
 
 	<properties>
