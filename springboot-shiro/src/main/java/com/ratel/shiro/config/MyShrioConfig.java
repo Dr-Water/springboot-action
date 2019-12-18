@@ -47,6 +47,7 @@ public class MyShrioConfig {
         filterMap.put("/login.html", "anon");
         //放过测试事务注解的请求
         filterMap.put("/tx/*", "anon");
+        filterMap.put("/mymenu/*", "anon");
         filterMap.put("/shiro/logout", "logout");
         filterMap.put("/*", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
